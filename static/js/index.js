@@ -31,7 +31,6 @@ function ENDEDIDO_2_2() {
 
 
 
-
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
@@ -77,12 +76,25 @@ function ENDEDIDO_2_2() {
 
   // called when a message arrives
   function onMessageArrived(message) {
-	//console.log("mensaje del sensor:"+message.payloadString);
 	text=(message.payloadString);
-	console.log(text);
-	document.getElementById("led1").innerHTML = text;
-	// document.getElementById("led2").innerHTML=message.payloadString.split("led1");
+	console.log(text)
+	if(text=="foco1 encendido"){
+		document.getElementById("respuesta1").innerHTML = text;	
+	}
+	if(text=="foco1 Apagado"){
+		document.getElementById("respuesta1").innerHTML = text;	
+	}
+	if(text=="foco2 encendido"){
+		document.getElementById("respuesta2").innerHTML = text;	
+	}
+	if(text=="foco2 Apagado"){
+		document.getElementById("respuesta2").innerHTML = text;	
+	}
+	
+ 
+	//console.log("mensaje del sensor:"+message.payloadString);
+	
+	
 
   
   }
-  
